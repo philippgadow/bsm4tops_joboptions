@@ -5,14 +5,24 @@
 Run in release `21.6.58` (CC7)
 
 ```
-git clone git@github.com:philippgadow/vlq_newrelease.git
+git clone git@github.com:philippgadow/bsm4tops_joboptions.git
 source setup.sh
 source run.sh
 ```
 
+
+### Batch submission
+On DESY NAF run:
+
+```
+source setup_batch.sh
+source run_batch.sh
+```
+
 ### Modify job option
 
-Take the job option [`100xxx/100001/mc.MGPy8EG_ZBHb1000LH100_sigonly.py`](https://github.com/philippgadow/vlq_newrelease/blob/master/100xxx/100001/mc.MGPy8EG_ZBHb1000LH100_sigonly.py) to implement your changes for testing.
-All other job options are symlinks to this file.
+Take the job option [`150xxx/150000/MadGraphControl_TopPhilicG_4t_v2.py`](https://github.com/philippgadow/bsm4tops_joboptions/blob/master/150xxx/150000/MadGraphControl_TopPhilicG_4t_v2.py) to implement your changes for testing.
+All other copies of that job option are symlinks to this file.
+
 
 
