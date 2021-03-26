@@ -98,9 +98,9 @@ if (nevents <0):
 # Determine MadGraph process                                                                                                                                 
 #---------------------------------------------------------------------------------------------------                                               
 process_string = {
- "restt": "generate p p > t t~ v1/v1, v1 > t t~",
- "resjt": "generate p p > top j v1/v1, v1 > t t~",
- "reswt": "generate p p > top w v1/v1, v1 > t t~",
+ "restt": "generate p p > t t~ t t~ QCD<=2 Qv1=2 QED=0",
+ "resjt": "generate p p > t t~ top j QCD<=2 Qv1=2 QED=0",
+ "reswt": "generate p p > generate p p > t t~ top w QCD<=2 Qv1=2 QED=0",
 }
 
 process = """
