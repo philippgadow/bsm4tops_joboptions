@@ -2,7 +2,6 @@
 
 # Job submission for DESY HTCondor - copy to project directory and adapt to your needs
 JOBNAME="TRUTH1_bsm4tops"
-# DSIDS="150000 150017" #Range of DSIDs in job option directory
 DSIDS="151000 151001 151002 151003 151004 151005 151006 151007 151008 151009 151010 151011 151012 151013 151014 151015 \
        152000 152001 152002 152003 \
        153000 153001 153002 153003 \
