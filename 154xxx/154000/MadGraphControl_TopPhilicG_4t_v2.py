@@ -105,6 +105,7 @@ process_string = {
 
 process = """
 import model Top-Philic_UFO_V1_v2
+set zerowidth_tchannel False
 define p = g u c d s u~ c~ d~ s~ b b~
 define j = g u c d s u~ c~ d~ s~ b b~
 define top = t t~
