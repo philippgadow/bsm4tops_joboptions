@@ -55,10 +55,18 @@ All other copies of that job option are symlinks to this file.
 | 151001 | restt   | 1000 | AUTO  |  1.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
 | 151002 | restt   | 1000 | AUTO  |  2.5 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
 | 151003 | restt   | 1000 | AUTO  |  5.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
-| 151004 | restt   | 1000 | AUTO  |  7.5 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
-| 151005 | restt   | 1000 | AUTO  | 10.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
-| 151006 | restt   | 1000 | AUTO  | 20.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
-| 151007 | restt   | 1000 | AUTO  | 50.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
+| 151004 | restt   | 1250 | AUTO  |  0.5 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
+| 151005 | restt   | 1250 | AUTO  |  1.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
+| 151006 | restt   | 1250 | AUTO  |  2.5 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
+| 151007 | restt   | 1250 | AUTO  |  5.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
+| 151008 | restt   | 1500 | AUTO  |  0.5 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
+| 151009 | restt   | 1500 | AUTO  |  1.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
+| 151010 | restt   | 1500 | AUTO  |  2.5 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
+| 151011 | restt   | 1500 | AUTO  |  5.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
+| 151012 | restt   | 2000 | AUTO  |  0.5 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
+| 151013 | restt   | 2000 | AUTO  |  1.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
+| 151014 | restt   | 2000 | AUTO  |  2.5 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
+| 151015 | restt   | 2000 | AUTO  |  5.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
 | ------ | ------- | ---- | ----- | ---- | ----- | ---------------------- | -------- |
 
 | ------ | ------- | ---- | ----- | ---- | ----- | ---------------------- | -------- |
@@ -68,10 +76,6 @@ All other copies of that job option are symlinks to this file.
 | 152001 | resjt   | 1000 | AUTO  |  1.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
 | 152002 | resjt   | 1000 | AUTO  |  2.5 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
 | 152003 | resjt   | 1000 | AUTO  |  5.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
-| 152004 | resjt   | 1000 | AUTO  |  7.5 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
-| 152005 | resjt   | 1000 | AUTO  | 10.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
-| 152006 | resjt   | 1000 | AUTO  | 20.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
-| 152007 | resjt   | 1000 | AUTO  | 50.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
 | ------ | ------- | ---- | ----- | ---- | ----- | ---------------------- | -------- |
 
 | ------ | ------- | ---- | ----- | ---- | ----- | ---------------------- | -------- |
@@ -81,10 +85,6 @@ All other copies of that job option are symlinks to this file.
 | 153001 | reswt   | 1000 | AUTO  |  1.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
 | 153002 | reswt   | 1000 | AUTO  |  2.5 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
 | 153003 | reswt   | 1000 | AUTO  |  5.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
-| 153004 | reswt   | 1000 | AUTO  |  7.5 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
-| 153005 | reswt   | 1000 | AUTO  | 10.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
-| 153006 | reswt   | 1000 | AUTO  | 20.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
-| 153007 | reswt   | 1000 | AUTO  | 50.0 |  pi/4 | p > v1 t t~, v1 > t t~ | no       |
 | ------ | ------- | ---- | ----- | ---- | ----- | ---------------------- | -------- |
 
 | ------ | ------- | ---- | ----- | ---- | ----- | -------------------------------- | -------- |
@@ -94,4 +94,16 @@ All other copies of that job option are symlinks to this file.
 | 154001 | restt   | 1000 | AUTO  |  1.0 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
 | 154002 | restt   | 1000 | AUTO  |  2.5 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
 | 154003 | restt   | 1000 | AUTO  |  5.0 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
+| 154004 | restt   | 1250 | AUTO  |  0.5 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
+| 154005 | restt   | 1250 | AUTO  |  1.0 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
+| 154006 | restt   | 1250 | AUTO  |  2.5 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
+| 154007 | restt   | 1250 | AUTO  |  5.0 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
+| 154008 | restt   | 1500 | AUTO  |  0.5 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
+| 154009 | restt   | 1500 | AUTO  |  1.0 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
+| 154010 | restt   | 1500 | AUTO  |  2.5 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
+| 154011 | restt   | 1500 | AUTO  |  5.0 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
+| 154012 | restt   | 2000 | AUTO  |  0.5 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
+| 154013 | restt   | 2000 | AUTO  |  1.0 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
+| 154014 | restt   | 2000 | AUTO  |  2.5 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
+| 154015 | restt   | 2000 | AUTO  |  5.0 |  pi/4 | p > t t~ t t~ QCD<=2 Qv1=2 QED=0 | no       |
 | ------ | ------- | ---- | ----- | ---- | ----- | -------------------------------- | -------- |
