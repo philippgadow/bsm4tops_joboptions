@@ -5,7 +5,9 @@ width="auto"
 # - restt: pp > resonance tt > tttt
 # - resjt: pp > resonance jt > jttt
 # - reswt: pp > resonance Wt > Wttt
-process_id="restt"
+# - tttt: pp > tttt (including both resonant and non-resonant production, but ignoring SM4tops)
+# - ttttsm: pp > tttt (including both resonant and non-resonant production, including SM4tops)
+process_id="tttt"
 # resonance coupling to top quarks
 ct1=5.0
 #  chirality parameter

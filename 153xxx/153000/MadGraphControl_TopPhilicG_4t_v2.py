@@ -59,6 +59,7 @@ print("- ME reweighting enabled {p}".format(p=reweight))
 # MadGraph PDF base fragment
 import MadGraphControl.MadGraphUtils
 MadGraphControl.MadGraphUtils.MADGRAPH_PDFSETTING={
+    # central PDF + variations for 315200 / NNPDF31_lo_as_0130
     'central_pdf':315200, # the lhapf id of the central pdf, see https://lhapdf.hepforge.org/pdfsets
     'pdf_variations':[315200], # pdfs for which all variations (error sets) will be included as weights
     'alternative_pdfs':[], # pdfs for which only the central set will be included as weights
@@ -101,6 +102,8 @@ process_string = {
  "restt": "generate p p > t t~ v1/v1, v1 > t t~",
  "resjt": "generate p p > top j v1/v1, v1 > t t~",
  "reswt": "generate p p > top w v1/v1, v1 > t t~",
+ "tttt": "generate p p > t t~ t t~ QCD<=2 Qv1<=2 QED=0",
+ "ttttsm": "generate p p > t t~ t t~ QCD<=4 Qv1<=2 QED=0",
 }
 
 process = """
@@ -128,7 +131,7 @@ modify_param_card(process_dir=process_dir, params={k:v for (k,v) in parameters.i
 # Add reweight card, therefore allowing for scans of theta1 and ct1
 #---------------------------------------------------------------------------------------------------                
 if reweight:
-  ct1_scan = [0.5, 1.0, 2.5, 5.0, 7.5, 10.0, 20.0, 50.0]
+  ct1_scan = [0.50, 0.75, 1.00, 1.25, 1.50, 1.75, 2.00, 2.25, 2.50, 2.75, 3.00, 3.50, 4.00, 4.50, 5.00]
   theta1_scan = [0., 1./8.*pi, 2./8.*pi, 3./8.*pi, 4./8.*pi, 5./8.*pi, 6./8.*pi, 7./8.*pi, pi]
 
   reweightCommand=""
@@ -154,7 +157,6 @@ arrange_output(process_dir=process_dir, runArgs=runArgs, lhe_version=lhe_version
 # Storing information and post-processing with parton shower                                                                                                                            
 #---------------------------------------------------------------------------------------------------   
 # Some more information
-evgenConfig.inputfilecheck = ""
 evgenConfig.description = "pp -> ttV1, V1->tt signal point"
 evgenConfig.keywords = ["exotic", "BSM", "RandallSundrum", "warpedED"]
 evgenConfig.contact = ["James Ferrando <james.ferrando@desy.de>", "Philipp Gadow <paul.philipp.gadow@cern.ch>"]

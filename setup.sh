@@ -12,6 +12,7 @@ cp -r 151xxx/* workdir/
 cp -r 152xxx/* workdir/
 cp -r 153xxx/* workdir/
 cp -r 154xxx/* workdir/
+cp -r 155xxx/* workdir/
 cd workdir
 asetup ${MYRELEASE}
 cd -
