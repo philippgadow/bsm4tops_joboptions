@@ -1,60 +1,12 @@
 #! /usr/bin/env pythonrun
 from MadGraphControl.MadGraphUtils import *
 from itertools import product
-from math import pi
+
 
 #---------------------------------------------------------------------------------------------------                                               
 # Set parameters                                                                                                                                   
 #---------------------------------------------------------------------------------------------------                                               
 lhe_version = 3.0
-
-# Set defaults if parameters are not set in entry level job option
-try:
-  mass
-except NameError:
-  mass = 1500.0
-  print('Warning: {parameter} not set. Setting it to default value of {default}'.format(
-    parameter="resonance mass (mass)", default=mass))
-try:
-  width
-except NameError:
-  width = "auto"
-  print('Warning: {parameter} not set. Setting it to default value of {default}'.format(
-    parameter="resonance width (width)", default=width))
-try:
-  ct1
-except NameError:
-  ct1 = 1.0
-  print('Warning: {parameter} not set. Setting it to default value of {default}'.format(
-    parameter="resonance coupling to top quarks (ct1)", default=ct1))
-try:
-  theta1
-except NameError:
-  theta1 = pi / 4.
-  print('Warning: {parameter} not set. Setting it to default value of {default}'.format(
-    parameter="chirality parameter (theta1)", default=theta1))
-try:
-  process_id
-except NameError:
-  process_id = "restt"
-  print('Warning: {parameter} not set. Setting it to default value of {default}'.format(
-    parameter="Process type (process_id: restt, resjt, or reswt)", default=process_id))
-
-try:
-  reweight
-except NameError:
-  reweight = True
-  print('Warning: {parameter} not set. Setting it to default value of {default}'.format(
-    parameter="Reweighting enabled flag", default=reweight))
-
-print("Job option parameters:")
-print("- resonance mass {p}".format(p=mass))
-print("- resonance width {p}".format(p=width))
-print("- resonance coupling to top quarks {p}".format(p=ct1))
-print("- chirality parameter {p}".format(p=theta1))
-print("- process ID {p}".format(p=process_id))
-print("- ME reweighting enabled {p}".format(p=reweight))
-
 
 # MadGraph PDF base fragment
 import MadGraphControl.MadGraphUtils
@@ -77,24 +29,9 @@ extras = {'auto_ptj_mjj':'False',
 # set bwcutoff to 100 for tttt and ttttsm production to ensure that
 # the resonance is written always to the LHE record
 # (does not affect cross-section, as no decay chain syntax is used for these processes)
-if process_id in ['tttt', 'ttttsm']:
-  extras['bwcutoff'] = 100
+extras['bwcutoff'] = 100
 
-parameters = {
-    'mass':{
-        'MB': 0.,
-        'Mv1': mass,
-    },
-    'decay':{
-        'Wv1': width,
-    },
-    'v0params': {
-      'ct1': ct1,
-    },
-    'v1params': {
-      'theta1': theta1
-    }
-}
+parameters = {}
 
 # this could be changed if event multipliers were ever needed
 nevents=runArgs.maxEvents
@@ -102,24 +39,17 @@ if (nevents <0):
   nevents=5000
 
 #---------------------------------------------------------------------------------------------------                                               
-# Determine MadGraph process                                                                                                                                 
+# Define MadGraph process                                                                                                                                 
 #---------------------------------------------------------------------------------------------------                                               
-process_string = {
- "restt": "generate p p > t t~ v1/v1, v1 > t t~",
- "resjt": "generate p p > top j v1/v1, v1 > t t~",
- "reswt": "generate p p > top w v1/v1, v1 > t t~",
- "tttt": "generate p p > t t~ t t~ QCD<=2 Qv1<=2 QED=0",
- "ttttsm": "generate p p > t t~ t t~ QCD<=4 Qv1<=2 QED=0",
-}
+
 
 process = """
-import model Top-Philic_UFO_V1_v2
 define p = g u c d s u~ c~ d~ s~ b b~
 define j = g u c d s u~ c~ d~ s~ b b~
 define top = t t~
 define w = w+ w-
-{process_string}
-output -f""".format(process_string=process_string[process_id])
+generate p p > t t~ t t~ QCD<=4 QED=0
+output -f"""
 
 process_dir = new_process(process)
 
@@ -134,25 +64,6 @@ modify_run_card(process_dir=process_dir, runArgs=runArgs, settings=extras)
 modify_param_card(process_dir=process_dir, params={k:v for (k,v) in parameters.items()})
 
 #---------------------------------------------------------------------------------------------------                                               
-# Add reweight card, therefore allowing for scans of theta1 and ct1
-#---------------------------------------------------------------------------------------------------                
-if reweight:
-  ct1_scan = [0.50, 0.75, 1.00, 1.25, 1.50, 1.75, 2.00, 2.25, 2.50, 2.75, 3.00, 3.50, 4.00, 4.50, 5.00]
-  theta1_scan = [0., 1./8.*pi, 2./8.*pi, 3./8.*pi, 4./8.*pi, 5./8.*pi, 6./8.*pi, 7./8.*pi, pi]
-
-  reweightCommand=""
-  for i_ct1, i_theta1 in product(ct1_scan, theta1_scan):
-    reweightCommand += "launch --rwgt_name=rwgt_ct1_{ct1_str}_theta1_{theta1_str}\n".format(
-      ct1_str=str(i_ct1).replace('.', 'p'), theta1_str="{0:.2f}".format(i_theta1).replace('.', 'p')
-    )
-    reweightCommand += "set v0params 1 {ct1}\n".format(ct1=i_ct1)
-    reweightCommand += "set v1params 1 {theta1}\n\n".format(theta1=i_theta1)
-
-  rcard = open(os.path.join(process_dir,'Cards', 'reweight_card.dat'), 'w')
-  rcard.write(reweightCommand)
-  rcard.close()
-
-#---------------------------------------------------------------------------------------------------                                               
 # Check cards and proceed with event generation                                                                                                                             
 #---------------------------------------------------------------------------------------------------   
 print_cards()
@@ -163,10 +74,10 @@ arrange_output(process_dir=process_dir, runArgs=runArgs, lhe_version=lhe_version
 # Storing information and post-processing with parton shower                                                                                                                            
 #---------------------------------------------------------------------------------------------------   
 # Some more information
-evgenConfig.description = "pp -> ttV1, V1->tt signal point"
-evgenConfig.keywords = ["exotic", "BSM", "RandallSundrum", "warpedED"]
-evgenConfig.contact = ["James Ferrando <james.ferrando@desy.de>", "Philipp Gadow <paul.philipp.gadow@cern.ch>"]
-evgenConfig.process = "pp>ttv1> tttt"  # e.g. pp>G*>WW>qqqq
+evgenConfig.description = "pp -> tttt reference process"
+evgenConfig.keywords = ["SM", "4tops"]
+evgenConfig.contact = ["Philipp Gadow <paul.philipp.gadow@cern.ch>"]
+evgenConfig.process = "pp> tttt"  # e.g. pp>G*>WW>qqqq
 
 # Finally, run the parton shower...
 include("Pythia8_i/Pythia8_A14_NNPDF23LO_EvtGen_Common.py")

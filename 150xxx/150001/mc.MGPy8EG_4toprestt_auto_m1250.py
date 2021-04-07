@@ -7,7 +7,7 @@ width="auto"
 # - reswt: pp > resonance Wt > Wttt
 process_id="restt"
 # resonance coupling to top quarks
-ct1=1.0
+ct1=2.5
 #  chirality parameter
 from math import pi
 theta1=pi/4.

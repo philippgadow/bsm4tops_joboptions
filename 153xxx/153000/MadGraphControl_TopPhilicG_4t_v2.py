@@ -74,6 +74,12 @@ extras = {'auto_ptj_mjj':'False',
           'dynamical_scale_choice':3,
           }
 
+# set bwcutoff to 100 for tttt and ttttsm production to ensure that
+# the resonance is written always to the LHE record
+# (does not affect cross-section, as no decay chain syntax is used for these processes)
+if process_id in ['tttt', 'ttttsm']:
+  extras['bwcutoff'] = 100
+
 parameters = {
     'mass':{
         'MB': 0.,
