@@ -1,13 +1,13 @@
 # resonance mass and width
-mass=1000.0
+mass=1500.0
 width="auto"
 # process ID
 # - restt: pp > resonance tt > tttt
 # - resjt: pp > resonance jt > jttt
 # - reswt: pp > resonance Wt > Wttt
-process_id="resjt"
+process_id="reswt"
 # resonance coupling to top quarks
-ct1=0.5
+ct1=1.0
 #  chirality parameter
 from math import pi
 theta1=pi/4.

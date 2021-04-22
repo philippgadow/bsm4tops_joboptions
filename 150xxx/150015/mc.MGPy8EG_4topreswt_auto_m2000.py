@@ -5,9 +5,10 @@ width="auto"
 # - restt: pp > resonance tt > tttt
 # - resjt: pp > resonance jt > jttt
 # - reswt: pp > resonance Wt > Wttt
+# - tttt: pp > tttt (including both resonant and non-resonant production, but ignoring SM4tops)
 process_id="reswt"
 # resonance coupling to top quarks
-ct1=1.0
+ct1=2.5
 #  chirality parameter
 from math import pi
 theta1=pi/4.

@@ -75,7 +75,7 @@ arrange_output(process_dir=process_dir, runArgs=runArgs, lhe_version=lhe_version
 #---------------------------------------------------------------------------------------------------   
 # Some more information
 evgenConfig.description = "pp -> tttt reference process"
-evgenConfig.keywords = ["SM", "4tops"]
+evgenConfig.keywords = ["SM"]
 evgenConfig.contact = ["Philipp Gadow <paul.philipp.gadow@cern.ch>"]
 evgenConfig.process = "pp> tttt"  # e.g. pp>G*>WW>qqqq
 

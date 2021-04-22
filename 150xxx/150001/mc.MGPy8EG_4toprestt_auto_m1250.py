@@ -5,6 +5,7 @@ width="auto"
 # - restt: pp > resonance tt > tttt
 # - resjt: pp > resonance jt > jttt
 # - reswt: pp > resonance Wt > Wttt
+# - tttt: pp > tttt (including both resonant and non-resonant production, but ignoring SM4tops)
 process_id="restt"
 # resonance coupling to top quarks
 ct1=2.5
